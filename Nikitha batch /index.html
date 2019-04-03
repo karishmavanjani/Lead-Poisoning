@@ -7,16 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- first step to a responsive site -->
-    <title>HTML Skeleton</title>
+    <title>Lead Poisoning</title>
 
     <!-- FONT AWESOME -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="styles.css">
 
     <!-- Your styles should be called here -->
-
-    <link rel="stylesheet" type="text/css" href="Style.css">
-    <!-- -->
-
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,11 +25,10 @@
 
   <body>
     <!-- YOUR CONTENT GOES HERE -->
-
     <section>
       <div>
         <figure class="lead-image">
-          <img src="/Users/karishmavanjani/Sites/Lead-Poisoning/Nikitha batch /Images_nikitha/lead-warning.jpg" />
+          <img src="images/lead-warning.jpg" />
           <figcaption> A recent study revealed that the number of children with elevated blood lead levels as of 1999-2010 is 1.2 million</figcaption>
         </figure>
 
@@ -64,61 +60,69 @@
 
     </section>
 
+
+    <!-- <div class="container1"> -->
+
     <div class="container">
-      <h2>Pick a state to check the blood lead levels </h2>
-      <form>
-        <select id="character">
-          <option value="">Choose a state...</option>
-        </select>
-        <br><br>
-        <!-- <input id="enter" type="submit"> -->
-      </form>
 
-      <div id="favorites"></div>
+    </div>
+    <h3>Find Out How Many Children Tested Positive For Lead In Your State </h3>
+    <form>
+      <select id="character"></select>
+      <br><br>
+      <input id="enter" type="submit">
+    </form>
 
-      <!-- templating occurs here -->
+    <div id="favorites"></div>
+    <!-- templating occurs here -->
+    <script type="text/html" id="person_template">
+      <div class="state"> <%= person.state %> </div> <br>
+      <p>
 
-      <script type="text/html" id="person_template">
-        <div class="state">
-        <%= person.state %>
-      </div>
-      <!-- <img src="<%=person.imglocation%>" /> -->
-      <div class="law">
- <%= person.law %>
-      </div>
+        the total population of children tested were <%= person.population %> <br> <br> <br> <br> <br> and the number of children above the CDC's limit for safe blood lead levels were <%= person.bll %>.<br> </p>
 
-      <div class="container">
-    <div class="style">Number of children tested were </div>
-      </div>
-
-      <div class="population">
-        <%= person.population.toLocaleString() %>
-      </div>
-      <div class="container">
-      <div class="style">Children with unsafe blood lead levels </div>
-      </div>
-
-      <div class="lead1"> <%= person.bll %> </div>
-    </script>
-
-
-      <script type="text/html" id="select_template">
-        <option value="<%= state %>"><%= state %></option>
         </script>
-      <!-- the jQuery library. You need this to be able to use jQuery ($) -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <!-- Your javascript should be called here -->
 
-      <!-- link to lodash cdn -->
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
-    </div>
+    <script type="text/html" id="select_template">
+      <option value="<%= state %>"><%= state %></option>
+        </script>
 
-    <!-- the main js file -->
+    <!-- <div id="lead"></div>
+      <script type="text/html" id="states_template">
+        You selected <%= states.state %>. Population of children is <%= states.population %>. Percentage of children with BLL greater than 5 <%= states.bll %>.
+        <script type="text/html" id="select_template">
+          <option value="<%= state %>"><%= state %></option>
+        </script> -->
+    <!-- </div> -->
+
+
+    <!-- <section>
+      <div class="state alabama">
+        <h3>Alabama</h3>
+        <p> Percentage of children with BLL>=5: 2%</p>
+      </div>
+
+      <div class="state alaska">
+        <h3>Alaska</h3>
+        <p> Percentage of children with BLL>=5: no information</p>
+      </div>
+
+      <div class="state arizona">
+        <h3>Arizona</h3>
+        <p> Percentage of children with BLL>=5: 2%</p>
+      </div>
+    </section>
+    </div> -->
+
+
+
+    <!-- the jQuery library. You need this to be able to use jQuery ($) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
     <script src="main.js"></script>
-
-    <!-- link to data -->
     <script src="data.js"></script>
-    </div>
+
+    <!-- Your javascript should be called here -->
   </body>
 
 </html>
